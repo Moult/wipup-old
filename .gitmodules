@@ -7,3 +7,6 @@
 [submodule "application/vendor/Eadrax/Eadrax"]
 	path = application/vendor/Eadrax/Eadrax
 	url = git@github.com:Eadrax/Eadrax.git
+[submodule "application/vendor/Eadrax/Repository-MySQL"]
+	path = application/vendor/Eadrax/Repository-MySQL
+	url = git://github.com/Eadrax/Repository-MySQL.git
