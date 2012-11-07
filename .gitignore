@@ -1,0 +1,10 @@
+*~
+*.sw*
+application/logs/*
+application/tmp/*
+application/cache/*
+bin/*
+build/*
+composer.phar
+docs/*
+vendor/*
