@@ -51,6 +51,7 @@ setlocale(LC_ALL, 'en_US.utf-8');
  */
 spl_autoload_register(array('Kohana', 'auto_load'));
 spl_autoload_register(function($class) { Kohana::auto_load($class, 'vendor/Eadrax/Eadrax/src'); });
+spl_autoload_register(function($class) { Kohana::auto_load($class, 'vendor/Eadrax/Repository-MySQL'); });
 
 /**
  * Optionally, you can enable a compatibility auto-loader for use with
