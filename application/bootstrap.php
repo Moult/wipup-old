@@ -50,7 +50,7 @@ setlocale(LC_ALL, 'en_US.utf-8');
  * @link http://www.php.net/manual/function.spl-autoload-register
  */
 spl_autoload_register(array('Kohana', 'auto_load'));
-spl_autoload_register(function($class) { Kohana::auto_load($class, 'vendor/Eadrax/src'); });
+spl_autoload_register(function($class) { Kohana::auto_load($class, 'vendor/Eadrax/Eadrax/src'); });
 
 /**
  * Optionally, you can enable a compatibility auto-loader for use with
@@ -102,7 +102,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  * - boolean  expose      set the X-Powered-By header                        FALSE
  */
 Kohana::init(array(
-    'base_url'   => '/Eadrax/',
+    'base_url'   => '/WIPUP/',
     'index_file' => FALSE,
 ));
 
