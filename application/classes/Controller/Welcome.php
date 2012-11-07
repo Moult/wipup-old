@@ -26,6 +26,7 @@ class Controller_Welcome extends Controller
     public function action_index()
     {
         $view = new View_Welcome_Homepage;
-        $this->response->body($view);
+        $renderer = Kostache_Layout::factory();
+        $this->response->body($renderer->render($view));
     }
 }
