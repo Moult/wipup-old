@@ -50,7 +50,8 @@ abstract class Controller_Core extends Controller
     {
         $view = new $view_name;
         $this->assign_view_data($view, $data);
-        $this->response->body($view);
+        $renderer = Kostache_Layout::factory();
+        $this->response->body($renderer->render($view));
     }
 
     /**
