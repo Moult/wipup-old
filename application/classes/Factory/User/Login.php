@@ -32,7 +32,8 @@ class Factory_User_Login extends Factory_Core
             $this->data_user(),
             $this->role_guest(),
             $this->repository(),
-            $this->entity_auth()
+            $this->entity_auth(),
+            $this->entity_validation()
         );
     }
 
@@ -78,5 +79,15 @@ class Factory_User_Login extends Factory_Core
     public function entity_auth()
     {
         return Auth::instance();
+    }
+
+    /**
+     * Load validation driver.
+     *
+     * @return Driver_Validation
+     */
+    public function entity_validation()
+    {
+        return new Driver_Validation;
     }
 }

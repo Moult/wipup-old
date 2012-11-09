@@ -34,7 +34,8 @@ class Factory_Project_Add extends Factory_Core
             $this->data_project(),
             $this->role_proposal(),
             $this->repository(),
-            $this->entity_auth()
+            $this->entity_auth(),
+            $this->entity_validation()
         );
     }
 
@@ -99,5 +100,15 @@ class Factory_Project_Add extends Factory_Core
     public function entity_auth()
     {
         return Auth::instance();
+    }
+
+    /**
+     * Loads validation driver.
+     *
+     * @return Driver_Validation
+     */
+    public function entity_validation()
+    {
+        return new Driver_Validation;
     }
 }
