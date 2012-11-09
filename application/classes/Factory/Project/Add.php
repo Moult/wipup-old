@@ -1,6 +1,6 @@
 <?php
 /**
- * Eadrax application/classes/Context/Project/Add/Factory.php
+ * Eadrax application/classes/Factory/Project/Add.php
  *
  * @package   Context
  * @author    Dion Moult <dion@thinkmoult.com>
@@ -10,14 +10,16 @@
  */
 
 defined('SYSPATH') OR die('No direct script access.');
+use Eadrax\Eadrax\Context;
+use Eadrax\Eadrax\Data;
 
 /**
- * Dependency injection to load all related data models, repositories, and 
- * vendor modules to prepare the Context for execution.
+ * Dependency injection to load all related data, repositories, and 
+ * vendor entities to prepare the Context for execution.
  *
  * @package Context
  */
-class Context_Project_Add_Factory extends Context_Factory
+class Factory_Project_Add extends Factory_Core
 {
     /**
      * Loads the context
@@ -27,33 +29,66 @@ class Context_Project_Add_Factory extends Context_Factory
     public function fetch()
     {
         return new Context_Project_Add(
-            $this->model_user(),
-            $this->model_project(),
-            $this->module_auth()
+            $this->data_user(),
+            $this->role_user(),
+            $this->data_project(),
+            $this->role_proposal(),
+            $this->repository(),
+            $this->entity_auth()
         );
     }
 
     /**
      * Data object for users
      *
-     * @return Model_User
+     * @return Data\User
      */
-    public function model_user()
+    public function data_user()
     {
-        return new Model_User;
+        return new Data\User;
+    }
+
+    /**
+     * Loads the user role
+     *
+     * @return Context\Project\Add\User
+     */
+    public function role_user()
+    {
+        return new Context\Project\Add\User;
     }
 
     /**
      * Data object for projects
      *
-     * @return Model_Project
+     * @return Data\Project
      */
-    public function model_project()
+    public function data_project()
     {
-        return new Model_Project(array(
+        return new Data\Project(array(
             'name' => $this->get_data('name'),
             'summary' => $this->get_data('summary')
         ));
+    }
+
+    /**
+     * Loads the proposal role
+     *
+     * @return Context\Project\Add\Proposal
+     */
+    public function role_proposal()
+    {
+        return new Context\Project\Add\Proposal;
+    }
+
+    /**
+     * Loads the repository for this context
+     *
+     * @return Eadrax\Repository\Project\Add
+     */
+    public function repository()
+    {
+        return new Eadrax\Repository\Project\Add;
     }
 
     /**
@@ -61,7 +96,7 @@ class Context_Project_Add_Factory extends Context_Factory
      *
      * @return Auth
      */
-    public function module_auth()
+    public function entity_auth()
     {
         return Auth::instance();
     }

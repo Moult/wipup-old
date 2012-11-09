@@ -1,6 +1,6 @@
 <?php
 /**
- * Eadrax application/classes/Context/User/Logout/Factory.php
+ * Eadrax application/classes/Factory/User/Logout.php
  *
  * @package   Context
  * @author    Dion Moult <dion@thinkmoult.com>
@@ -10,14 +10,15 @@
  */
 
 defined('SYSPATH') OR die('No direct script access.');
+use Eadrax\Eadrax\Context;
 
 /**
  * Dependency injection to load all related data models, repositories, and 
- * vendor modules to prepare the Context for execution.
+ * vendor entities to prepare the Context for execution.
  *
  * @package Context
  */
-class Context_User_Logout_Factory extends Context_Factory
+class Factory_User_Logout extends Factory_Core
 {
     /**
      * Loads the context
@@ -26,8 +27,8 @@ class Context_User_Logout_Factory extends Context_Factory
      */
     public function fetch()
     {
-        return new Context_User_Logout(
-            $this->module_auth()
+        return new Context\User\Logout(
+            $this->entity_auth()
         );
     }
 
@@ -36,7 +37,7 @@ class Context_User_Logout_Factory extends Context_Factory
      *
      * @return Auth
      */
-    public function module_auth()
+    public function entity_auth()
     {
         return Auth::instance();
     }

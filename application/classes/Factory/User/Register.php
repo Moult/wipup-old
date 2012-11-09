@@ -1,6 +1,6 @@
 <?php
 /**
- * Eadrax application/classes/Context/User/Register/Factory.php
+ * Eadrax application/classes/Factory/User/Register.php
  *
  * @package   Context
  * @author    Dion Moult <dion@thinkmoult.com>
@@ -10,36 +10,40 @@
  */
 
 defined('SYSPATH') OR die('No direct script access.');
+use Eadrax\Eadrax\Context;
+use Eadrax\Eadrax\Data;
 
 /**
- * Dependency injection to load all related data models, repositories, and 
- * vendor modules to prepare the Context for execution.
+ * Dependency injection to load all related data, repositories, and 
+ * vendor entities to prepare the Context for execution.
  *
  * @package Context
  */
-class Context_User_Register_Factory extends Context_Factory
+class Factory_User_Register extends Factory_Core
 {
     /**
      * Loads the context
      *
-     * @return Context_User_Register
+     * @return Context\User\Register
      */
     public function fetch()
     {
-        return new Context_User_Register(
-            $this->model_user(),
-            $this->module_auth()
+        return new Context\User\Register(
+            $this->data_user(),
+            $this->role_guest(),
+            $this->repository(),
+            $this->entity_auth()
         );
     }
 
     /**
      * Data object for users
      *
-     * @return Model_User
+     * @return Data\User
      */
-    public function model_user()
+    public function data_user()
     {
-        return new Model_User(array(
+        return new Data\User(array(
             'username' => $this->get_data('username'),
             'password' => $this->get_data('password'),
             'email' => $this->get_data('email')
@@ -47,11 +51,31 @@ class Context_User_Register_Factory extends Context_Factory
     }
 
     /**
+     * Loads the guest role
+     *
+     * @return Context\User\Register\Guest
+     */
+    public function role_guest()
+    {
+        return new Context\User\Register\Guest;
+    }
+
+    /**
+     * Loads the repository for this context
+     *
+     * @return Eadrax\Repository\User\Register
+     */
+    public function repository()
+    {
+        return new Eadrax\Repository\User\Register;
+    }
+
+    /**
      * This is a Kohana module.
      *
      * @return Auth
      */
-    public function module_auth()
+    public function entity_auth()
     {
         return Auth::instance();
     }

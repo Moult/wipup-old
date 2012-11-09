@@ -1,6 +1,6 @@
 <?php
 /**
- * Eadrax application/classes/Context/Factory.php
+ * Eadrax application/classes/Factory/Core.php
  *
  * @package   Context
  * @author    Dion Moult <dion@thinkmoult.com>
@@ -16,7 +16,7 @@ defined('SYSPATH') OR die('No direct script access.');
  *
  * @package Context
  */
-abstract class Context_Factory
+abstract class Factory_Core
 {
     /**
      * Stores input data the factory is given.

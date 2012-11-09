@@ -1,6 +1,6 @@
 <?php
 /**
- * Eadrax application/classes/Context/User/Dashboard/Factory.php
+ * Eadrax application/classes/Factory/User/Dashboard.php
  *
  * @package   Context
  * @author    Dion Moult <dion@thinkmoult.com>
@@ -11,13 +11,16 @@
 
 defined('SYSPATH') OR die('No direct script access.');
 
+use Eadrax\Eadrax\Context;
+use Eadrax\Eadrax\Data;
+
 /**
- * Dependency injection to load all related data models, repositories, and 
- * vendor modules to prepare the Context for execution.
+ * Dependency injection to load all related data, repositories, and 
+ * vendor entities to prepare the Context for execution.
  *
  * @package Context
  */
-class Context_User_Dashboard_Factory extends Context_Factory
+class Factory_User_Dashboard extends Factory_Core
 {
     /**
      * Loads the context
@@ -26,20 +29,31 @@ class Context_User_Dashboard_Factory extends Context_Factory
      */
     public function fetch()
     {
-        return new Context_User_Dashboard(
-            $this->model_user(),
-            $this->module_auth()
+        return new Context\User\Dashboard(
+            $this->data_user(),
+            $this->role_user(),
+            $this->entity_auth()
         );
     }
 
     /**
      * Data object for users
      *
-     * @return Model_User
+     * @return Data\User
      */
-    public function model_user()
+    public function data_user()
     {
-        return new Model_User;
+        return new Data\User;
+    }
+
+    /**
+     * Role object to play user
+     *
+     * @return Context\User\Dashboard\User
+     */
+    public function role_user()
+    {
+        return new Context\User\Dashboard\User;
     }
 
     /**
@@ -47,7 +61,7 @@ class Context_User_Dashboard_Factory extends Context_Factory
      *
      * @return Auth
      */
-    public function module_auth()
+    public function entity_auth()
     {
         return Auth::instance();
     }

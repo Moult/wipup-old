@@ -90,7 +90,7 @@ abstract class Controller_Core extends Controller
     private function guess_factory_name_from_uri()
     {
         list($controller, $function) = explode('/', $this->request->uri());
-        return 'Context_'.ucfirst($controller).'_'.ucfirst($function).'_Factory';
+        return 'Factory_'.ucfirst($controller).'_'.ucfirst($function);
     }
 
     /**
