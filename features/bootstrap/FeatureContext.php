@@ -16,7 +16,8 @@ use Behat\Gherkin\Node\PyStringNode,
 //
 
 require_once __DIR__.'/../../vendor/autoload.php';
-require_once __DIR__.'/../bootstrap.php';
+require_once __DIR__.'/bootstrap.php';
+require_once __DIR__.'/repository.php';
 
 /**
  * Features context.
@@ -48,8 +49,8 @@ class FeatureContext extends Behat\MinkExtension\Context\MinkContext
     public function thereIsAUserWithUsernameInDatabase($username)
     {
         $this->thereIsNoUserWithUsernameInDatabase($username);
-        $gateway_mysql_user = new Gateway_Mysql_User;
-        $gateway_mysql_user->insert(array(
+        $repository = new Repository;
+        $repository->insert_user(array(
             'username' => $username,
             'password' => $username,
             'email' => $username.'@'.$username.'.com'
