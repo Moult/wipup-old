@@ -38,9 +38,10 @@ class Driver_Validation implements Eadrax\Eadrax\Entity\Validation
         }
     }
 
-    public function callback($key, array $function)
+    public function callback($key, array $function, array $args)
     {
-        $this->instance->rule($key, $function);
+        array_unshift($args, ':value');
+        $this->instance->rule($key, $function, $args);
     }
 
     public function check()
