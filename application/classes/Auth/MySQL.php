@@ -14,6 +14,9 @@ defined('SYSPATH') OR die('No direct access allowed.');
 /**
  * This is a driver for the KO3 auth module.
  *
+ * Unlike the validation driver, the KO3 auth is a module, and so it is placed 
+ * here to take advantage of KO3's CFS.
+ *
  * This differs from the ORM auth driver in that:
  *  1. It does not use ORM. ORM is bloat.
  *  2. It does not understand roles.
@@ -22,7 +25,7 @@ defined('SYSPATH') OR die('No direct access allowed.');
  *
  * @package Auth
  */
-class Auth_MySQL extends Auth
+class Auth_MySQL extends Auth implements Eadrax\Eadrax\Entity\Auth
 {
     /**
      * Do username / password check
