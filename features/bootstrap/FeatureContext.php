@@ -16,7 +16,7 @@ use Behat\Gherkin\Node\PyStringNode,
 //
 
 require_once __DIR__.'/../../vendor/autoload.php';
-require_once __DIR__.'/../../spec/bootstrap.php';
+require_once __DIR__.'/../bootstrap.php';
 
 /**
  * Features context.
