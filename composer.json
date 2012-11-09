@@ -10,9 +10,6 @@
         "behat/mink-goutte-driver": "*",
         "behat/mink-selenium2-driver": "*"
     },
-    "require-dev": {
-        "phpspec/phpspec2": "*"
-    },
     "autoload": {"psr-0": {"": "application/classes"}},
     "minimum-stability": "dev"
 }
