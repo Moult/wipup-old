@@ -23,8 +23,8 @@ Feature: addproject
         And I should not see a "#kohana_error" element
         When I press "Add"
         Then I should see "Add Project"
-        And I should see "A project name is required."
-        And I should see "A project summary is required."
+        And I should see "A name is required."
+        And I should see "A summary is required."
         And I should not see a "#kohana_error" element
 
     Scenario: Visit the add project page whilst logged out

@@ -2,6 +2,6 @@ default:
   extensions:
     Behat\MinkExtension\Extension:
       show_cmd: opera-next %s
-      base_url: http://localhost/Eadrax
+      base_url: http://localhost/WIPUP
       goutte: ~
       selenium2: ~

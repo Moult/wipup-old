@@ -33,7 +33,7 @@ class View_Project_Add extends View_Layout
     public function errors()
     {
         $errors = array();
-        foreach ($this->errors as $error)
+        foreach ($this->errors as $error_field => $error)
         {
             $errors[] = $this->get_error_message($error_field, $error[0]);
         }

@@ -28,7 +28,7 @@ class Factory_Project_Add extends Factory_Core
      */
     public function fetch()
     {
-        return new Context_Project_Add(
+        return new Context\Project\Add(
             $this->data_user(),
             $this->role_user(),
             $this->data_project(),
