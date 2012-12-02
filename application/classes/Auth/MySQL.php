@@ -25,7 +25,7 @@ defined('SYSPATH') OR die('No direct access allowed.');
  *
  * @package Auth
  */
-class Auth_MySQL extends Auth implements Eadrax\Eadrax\Entity\Auth
+class Auth_MySQL extends Auth implements Eadrax\Core\Entity\Auth
 {
     /**
      * Do username / password check

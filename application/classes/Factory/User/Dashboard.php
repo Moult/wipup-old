@@ -11,8 +11,8 @@
 
 defined('SYSPATH') OR die('No direct script access.');
 
-use Eadrax\Eadrax\Context;
-use Eadrax\Eadrax\Data;
+use Eadrax\Core\Context;
+use Eadrax\Core\Data;
 
 /**
  * Dependency injection to load all related data, repositories, and 
@@ -31,7 +31,6 @@ class Factory_User_Dashboard extends Factory_Core
     {
         return new Context\User\Dashboard(
             $this->data_user(),
-            $this->role_user(),
             $this->entity_auth()
         );
     }
@@ -44,16 +43,6 @@ class Factory_User_Dashboard extends Factory_Core
     public function data_user()
     {
         return new Data\User;
-    }
-
-    /**
-     * Role object to play user
-     *
-     * @return Context\User\Dashboard\User
-     */
-    public function role_user()
-    {
-        return new Context\User\Dashboard\User;
     }
 
     /**

@@ -10,8 +10,8 @@
  */
 
 defined('SYSPATH') OR die('No direct script access.');
-use Eadrax\Eadrax\Context;
-use Eadrax\Eadrax\Data;
+use Eadrax\Core\Context;
+use Eadrax\Core\Data;
 
 /**
  * Dependency injection to load all related data, repositories, and 
@@ -30,9 +30,7 @@ class Factory_Project_Add extends Factory_Core
     {
         return new Context\Project\Add(
             $this->data_user(),
-            $this->role_user(),
             $this->data_project(),
-            $this->role_proposal(),
             $this->repository(),
             $this->entity_auth(),
             $this->entity_validation()
@@ -50,16 +48,6 @@ class Factory_Project_Add extends Factory_Core
     }
 
     /**
-     * Loads the user role
-     *
-     * @return Context\Project\Add\User
-     */
-    public function role_user()
-    {
-        return new Context\Project\Add\User;
-    }
-
-    /**
      * Data object for projects
      *
      * @return Data\Project
@@ -70,16 +58,6 @@ class Factory_Project_Add extends Factory_Core
             'name' => $this->get_data('name'),
             'summary' => $this->get_data('summary')
         ));
-    }
-
-    /**
-     * Loads the proposal role
-     *
-     * @return Context\Project\Add\Proposal
-     */
-    public function role_proposal()
-    {
-        return new Context\Project\Add\Proposal;
     }
 
     /**

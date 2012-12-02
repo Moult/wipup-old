@@ -17,7 +17,7 @@ defined('SYSPATH') OR die('No direct script access.');
  * @package    Driver
  * @subpackage Validation
  */
-class Driver_Validation implements Eadrax\Eadrax\Entity\Validation
+class Driver_Validation implements Eadrax\Core\Entity\Validation
 {
     private $instance;
 

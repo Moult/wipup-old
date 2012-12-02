@@ -10,8 +10,8 @@
  */
 
 defined('SYSPATH') OR die('No direct script access.');
-use Eadrax\Eadrax\Context;
-use Eadrax\Eadrax\Data;
+use Eadrax\Core\Context;
+use Eadrax\Core\Data;
 
 /**
  * Dependency injection to load all related data, repositories, and 
@@ -30,7 +30,6 @@ class Factory_User_Register extends Factory_Core
     {
         return new Context\User\Register(
             $this->data_user(),
-            $this->role_guest(),
             $this->repository(),
             $this->entity_auth(),
             $this->entity_validation()
@@ -49,16 +48,6 @@ class Factory_User_Register extends Factory_Core
             'password' => $this->get_data('password'),
             'email' => $this->get_data('email')
         ));
-    }
-
-    /**
-     * Loads the guest role
-     *
-     * @return Context\User\Register\Guest
-     */
-    public function role_guest()
-    {
-        return new Context\User\Register\Guest;
     }
 
     /**

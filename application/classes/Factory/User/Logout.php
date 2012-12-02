@@ -10,7 +10,7 @@
  */
 
 defined('SYSPATH') OR die('No direct script access.');
-use Eadrax\Eadrax\Context;
+use Eadrax\Core\Context;
 
 /**
  * Dependency injection to load all related data models, repositories, and 
