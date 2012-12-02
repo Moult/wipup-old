@@ -4,8 +4,8 @@
 [submodule "modules/kostache"]
 	path = modules/kostache
 	url = https://github.com/zombor/KOstache.git
-[submodule "application/vendor/Eadrax/Eadrax"]
-	path = application/vendor/Eadrax/Eadrax
+[submodule "application/vendor/Eadrax/Core"]
+	path = application/vendor/Eadrax/Core
 	url = git@github.com:Eadrax/Eadrax.git
 [submodule "application/vendor/Eadrax/Repository-MySQL"]
 	path = application/vendor/Eadrax/Repository-MySQL
